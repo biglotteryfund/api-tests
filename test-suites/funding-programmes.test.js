@@ -11,7 +11,7 @@ beforeAll(() => {
 test('it should return a list of funding programmes', () => {
   return superagent.get(apiUrl('/v1/en/funding-programmes')).then(res => {
     const { body } = res;
-    expectCommonShape(res);
+    expectCommonShape({ res, includeMeta: true });
     const titles = mapTitles(body);
     expect(titles).toContain('National Lottery Awards for All England');
     expect(titles).toContain('National Lottery Awards for All Wales');
@@ -22,7 +22,7 @@ test('it should return a list of funding programmes', () => {
 test('it should return a list of translated funding programmes', () => {
   return superagent.get(apiUrl('/v1/cy/funding-programmes')).then(res => {
     const { body } = res;
-    expectCommonShape(res);
+    expectCommonShape({ res, includeMeta: true });
     expect(mapTitles(body)).toContain(
       'Arian i Bawb y Loteri Genedlaethol Cymru'
     );
