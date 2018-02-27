@@ -13,9 +13,13 @@ test('it should return a list of funding programmes', () => {
     const { body } = res;
     expectCommonShape({ res, includeMeta: true });
     const titles = mapTitles(body);
-    expect(titles).toContain('National Lottery Awards for All England');
-    expect(titles).toContain('National Lottery Awards for All Wales');
-    expect(titles).toContain('National Lottery Awards for All Scotland');
+    expect(titles).toEqual(
+      expect.arrayContaining([
+        'National Lottery Awards for All England',
+        'National Lottery Awards for All Wales',
+        'National Lottery Awards for All Scotland'
+      ])
+    );
   });
 });
 
