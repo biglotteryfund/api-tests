@@ -8,7 +8,11 @@ const API_ENDPOINT = process.env.API_ENDPOINT;
 
 const apiUrl = urlPath => `${API_ENDPOINT}${urlPath}`;
 
-function expectCommonShape({ res, includeMeta = false }) {
+function expectListShape(xs, shape) {
+  expect(xs).toContainEqual(expect.objectContaining(shape));
+}
+
+function expectCommonResponse({ res, includeMeta = false }) {
   const { body } = res;
 
   expect(res.statusCode).toBe(200);
@@ -24,5 +28,6 @@ function expectCommonShape({ res, includeMeta = false }) {
 module.exports = {
   mapAttrs,
   apiUrl,
-  expectCommonShape
+  expectListShape,
+  expectCommonResponse
 };

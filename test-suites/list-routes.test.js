@@ -1,5 +1,5 @@
 const superagent = require('superagent');
-const { mapAttrs, apiUrl, expectCommonShape } = require('./helpers');
+const { mapAttrs, apiUrl, expectCommonResponse } = require('./helpers');
 const { compose, map } = require('lodash/fp');
 
 const mapPaths = compose(map('path'), mapAttrs);
@@ -8,7 +8,7 @@ test('it should return a list of all canonical routes powered by the CMS', () =>
   return superagent.get(apiUrl('/v1/list-routes')).then(res => {
     const { body } = res;
 
-    expectCommonShape({ res, includeMeta: true });
+    expectCommonResponse({ res, includeMeta: true });
 
     const paths = mapPaths(body);
     expect(paths).toContain('/about/strategic-framework');

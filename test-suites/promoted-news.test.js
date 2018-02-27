@@ -1,11 +1,11 @@
 const superagent = require('superagent');
-const { mapAttrs, apiUrl, expectCommonShape } = require('./helpers');
+const { mapAttrs, apiUrl, expectCommonResponse } = require('./helpers');
 const { sample } = require('lodash/fp');
 
 test('it should return a list of promoted news', () => {
   return superagent.get(apiUrl('/v1/en/promoted-news')).then(res => {
     const { body } = res;
-    expectCommonShape({ res, includeMeta: true });
+    expectCommonResponse({ res, includeMeta: true });
     const attrs = mapAttrs(body);
     expect(attrs.length).toBeGreaterThanOrEqual(3);
     const sampled = sample(attrs);

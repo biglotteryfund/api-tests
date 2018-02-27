@@ -1,5 +1,5 @@
 const superagent = require('superagent');
-const { apiUrl, expectCommonShape } = require('./helpers');
+const { apiUrl, expectCommonResponse } = require('./helpers');
 
 beforeAll(() => {
   jest.setTimeout(10000);
@@ -21,7 +21,7 @@ test('it should return a single funding programme', () => {
       const { body } = res;
       const attrs = body.data.attributes;
 
-      expectCommonShape({ res });
+      expectCommonResponse({ res });
       expectProgrammeShape(attrs);
 
       const title = attrs.summary.title;
@@ -38,7 +38,7 @@ test('it should return a single funding programme in welsh', () => {
       const { body } = res;
       const attrs = body.data.attributes;
 
-      expectCommonShape({ res });
+      expectCommonResponse({ res });
       expectProgrammeShape(attrs);
 
       const title = attrs.summary.title;
