@@ -25,9 +25,24 @@ function expectCommonResponse({ res, includeMeta = false }) {
   }
 }
 
+function expectHeroShape(heroImage) {
+  const mediaRegex = /^https:\/\/media\.biglotteryfund\.org\.uk/;
+  expect(heroImage).toEqual(
+    expect.objectContaining({
+      title: expect.any(String),
+      caption: expect.any(String),
+      default: expect.stringMatching(mediaRegex),
+      small: expect.stringMatching(mediaRegex),
+      medium: expect.stringMatching(mediaRegex),
+      large: expect.stringMatching(mediaRegex)
+    })
+  );
+}
+
 module.exports = {
   mapAttrs,
   apiUrl,
   expectListShape,
-  expectCommonResponse
+  expectCommonResponse,
+  expectHeroShape
 };

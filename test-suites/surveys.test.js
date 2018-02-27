@@ -26,7 +26,7 @@ function expectSurveyShape(body) {
   });
 }
 
-test.only('it should return a list of active survey', () => {
+test('it should return a list of active survey', () => {
   return superagent.get(apiUrl('/v1/en/surveys')).then(res => {
     const { body } = res;
     expectCommonResponse({ res, includeMeta: true });
@@ -39,7 +39,7 @@ test.only('it should return a list of active survey', () => {
   });
 });
 
-test.only('it should return a list of all surveys', () => {
+test('it should return a list of all surveys', () => {
   return superagent.get(apiUrl('/v1/en/surveys?all=true')).then(res => {
     const { body } = res;
     expectCommonResponse({ res, includeMeta: true });

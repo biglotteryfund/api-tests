@@ -1,5 +1,5 @@
 const superagent = require('superagent');
-const { apiUrl, expectCommonResponse } = require('./helpers');
+const { apiUrl, expectCommonResponse, expectHeroShape } = require('./helpers');
 
 beforeAll(() => {
   jest.setTimeout(10000);
@@ -10,9 +10,10 @@ function expectProgrammeShape(attrs) {
   expect(attrs).toHaveProperty('summary');
   expect(attrs).toHaveProperty('hero');
   expect(attrs).toHaveProperty('intro');
+  expectHeroShape(attrs.hero);
 }
 
-test('it should return a single funding programme', () => {
+test.only('it should return a single funding programme', () => {
   return superagent
     .get(
       apiUrl('/v1/en/funding-programme/national-lottery-awards-for-all-england')
