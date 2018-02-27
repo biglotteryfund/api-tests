@@ -14,6 +14,7 @@ test.only('it should return a list of profiles for a given section', () => {
     expectListShape(attrs, {
       title: expect.any(String),
       role: expect.any(String),
+      image: expect.any(String),
       bio: expect.any(String)
     });
   });
