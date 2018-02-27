@@ -1,4 +1,8 @@
+const { map } = require('lodash/fp');
+
 require('dotenv').config();
+
+const mapAttrs = body => map('attributes')(body.data);
 
 const API_ENDPOINT = process.env.API_ENDPOINT;
 
@@ -20,6 +24,7 @@ function expectCommonShape(res) {
 }
 
 module.exports = {
+  mapAttrs,
   apiUrl,
   expectCommonShape
 };
