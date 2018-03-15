@@ -26,7 +26,7 @@ function expectCommonResponse({ res, includeMeta = false }) {
 }
 
 function expectHeroShape(heroImage) {
-  const mediaRegex = /^https:\/\/media\.biglotteryfund\.org\.uk/;
+  const mediaRegex = /\.jpg/;
   expect(heroImage).toEqual(
     expect.objectContaining({
       title: expect.any(String),
