@@ -13,7 +13,7 @@ function expectProgrammeShape(attrs) {
   expectHeroShape(attrs.hero);
 }
 
-test.only('it should return a single funding programme', () => {
+test('it should return a single funding programme', () => {
   return superagent
     .get(
       apiUrl('/v1/en/funding-programme/national-lottery-awards-for-all-england')
@@ -33,7 +33,7 @@ test.only('it should return a single funding programme', () => {
 test('it should return a single funding programme in welsh', () => {
   return superagent
     .get(
-      apiUrl('/v1/cy/funding-programme/national-lottery-awards-for-all-england')
+      apiUrl('/v1/cy/funding-programme/national-lottery-awards-for-all-wales')
     )
     .then(res => {
       const { body } = res;

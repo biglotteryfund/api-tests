@@ -6,7 +6,7 @@ const {
   expectCommonResponse
 } = require('./helpers');
 
-test.only('it should return a list of profiles for a given section', () => {
+test('it should return a list of profiles for a given section', () => {
   return superagent
     .get(apiUrl('/v1/en/profiles/seniorManagementTeam'))
     .then(res => {
@@ -22,7 +22,7 @@ test.only('it should return a list of profiles for a given section', () => {
     });
 });
 
-test.only('it should return an error if an invalid section is requested', () => {
+test('it should return an error if an invalid section is requested', () => {
   return superagent.get(apiUrl('/v1/en/profiles/badSection')).catch(err => {
     expect(err.status).toBe(500);
     expect(err.response.res.statusMessage).toBe('Invalid section');
