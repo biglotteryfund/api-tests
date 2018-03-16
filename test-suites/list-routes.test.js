@@ -11,7 +11,7 @@ test('it should return a list of all canonical routes powered by the CMS', () =>
     expectCommonResponse({ res, includeMeta: true });
 
     const paths = mapPaths(body);
-    // expect(paths).toContain('/about/strategic-framework');
+    expect(paths).toContain('/about/strategic-framework');
     expect(paths).toContain('/funding/funding-guidance/information-checks');
     expect(paths).toContain(
       '/funding/programmes/national-lottery-awards-for-all-england'

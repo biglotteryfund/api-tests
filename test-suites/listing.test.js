@@ -27,6 +27,6 @@ test('it should return a content for a general page', () => {
 
       expectHeroShape(item.hero);
 
-      // expect(item.availableLanguages).toContain('en');
+      expect(item.availableLanguages).toContain('en');
     });
 });
