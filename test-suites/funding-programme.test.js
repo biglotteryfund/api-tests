@@ -43,6 +43,6 @@ test('it should return a single funding programme in welsh', () => {
       expectProgrammeShape(attrs);
 
       const title = attrs.summary.title;
-      expect(title).toBe('Arian i Bawb y Loteri Genedlaethol Lloegr');
+      expect(title).toBe('Arian i Bawb y Loteri Genedlaethol Cymru');
     });
 });
