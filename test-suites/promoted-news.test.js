@@ -1,6 +1,5 @@
 const superagent = require('superagent');
-const { mapAttrs, apiUrl, expectCommonResponse } = require('./helpers');
-const { sample } = require('lodash/fp');
+const { mapAttrs, apiUrl, expectCommonResponse, expectListShape, newsShape } = require('./helpers');
 
 test('it should return a list of promoted news', () => {
   return superagent.get(apiUrl('/v1/en/promoted-news')).then(res => {
@@ -8,9 +7,6 @@ test('it should return a list of promoted news', () => {
     expectCommonResponse({ res, includeMeta: true });
     const attrs = mapAttrs(body);
     expect(attrs.length).toBeGreaterThanOrEqual(3);
-    const sampled = sample(attrs);
-    expect(Object.keys(sampled)).toEqual(
-      expect.arrayContaining(['title', 'summary', 'link'])
-    );
+    expectListShape(attrs, newsShape);
   });
 });
