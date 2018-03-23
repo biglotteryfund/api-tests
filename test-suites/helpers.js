@@ -25,17 +25,31 @@ function expectCommonResponse({ res, includeMeta = false }) {
   }
 }
 
+const newsShape = {
+  title: expect.any(String),
+  summary: expect.any(String),
+  link: expect.any(String)
+}
+
+function expectNewsShape(newsArticle) {
+  expect(newsArticle).toEqual(
+    expect.objectContaining(newsShape)
+  );
+}
+
+const mediaRegex = /\.jpg/;
+const heroShape = {
+  title: expect.any(String),
+  caption: expect.any(String),
+  default: expect.stringMatching(mediaRegex),
+  small: expect.stringMatching(mediaRegex),
+  medium: expect.stringMatching(mediaRegex),
+  large: expect.stringMatching(mediaRegex)
+};
+
 function expectHeroShape(heroImage) {
-  const mediaRegex = /\.jpg/;
   expect(heroImage).toEqual(
-    expect.objectContaining({
-      title: expect.any(String),
-      caption: expect.any(String),
-      default: expect.stringMatching(mediaRegex),
-      small: expect.stringMatching(mediaRegex),
-      medium: expect.stringMatching(mediaRegex),
-      large: expect.stringMatching(mediaRegex)
-    })
+    expect.objectContaining(heroShape)
   );
 }
 
@@ -44,5 +58,8 @@ module.exports = {
   apiUrl,
   expectListShape,
   expectCommonResponse,
+  newsShape,
+  expectNewsShape,
+  heroShape,
   expectHeroShape
 };
