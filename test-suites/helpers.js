@@ -40,7 +40,6 @@ function expectNewsShape(newsArticle) {
 const mediaRegex = /\.jpg/;
 const heroShape = {
   title: expect.any(String),
-  caption: expect.any(String),
   default: expect.stringMatching(mediaRegex),
   small: expect.stringMatching(mediaRegex),
   medium: expect.stringMatching(mediaRegex),
@@ -51,6 +50,9 @@ function expectHeroShape(heroImage) {
   expect(heroImage).toEqual(
     expect.objectContaining(heroShape)
   );
+  // Optional/nullable properties
+  expect(heroImage).toHaveProperty('caption');
+  expect(heroImage).toHaveProperty('captionFootnote');
 }
 
 module.exports = {
