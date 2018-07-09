@@ -52,7 +52,6 @@ function expectHeroShape(heroImage) {
   );
   // Optional/nullable properties
   expect(heroImage).toHaveProperty('caption');
-  expect(heroImage).toHaveProperty('captionFootnote');
 }
 
 module.exports = {
