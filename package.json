@@ -5,18 +5,18 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "test": "jest",
+    "test": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && jest",
     "format": "prettier --single-quote --write test-suites/*"
   },
   "dependencies": {
-    "dotenv": "^5.0.1",
-    "jest": "^22.4.2",
-    "lodash": "^4.17.5",
-    "superagent": "^3.8.2"
+    "dotenv": "6.1.0",
+    "jest": "22.4.4",
+    "lodash": "4.17.11",
+    "superagent": "3.8.3"
   },
   "devDependencies": {
-    "eslint": "^4.18.1",
-    "prettier": "^1.11.0"
+    "eslint": "5.9.0",
+    "prettier": "1.15.2"
   },
   "eslintConfig": {
     "root": true,
@@ -27,7 +27,6 @@
       "jest": true
     },
     "rules": {
-      "no-shadow": "warn",
       "no-console": "off"
     }
   }
