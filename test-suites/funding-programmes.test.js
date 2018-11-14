@@ -2,7 +2,10 @@ const superagent = require('superagent');
 const { mapAttrs, apiUrl, expectCommonResponse } = require('./helpers');
 const { compose, map } = require('lodash/fp');
 
-const mapTitles = compose(map('content.title'), mapAttrs);
+const mapTitles = compose(
+  map('content.title'),
+  mapAttrs
+);
 
 beforeAll(() => {
   jest.setTimeout(10000);

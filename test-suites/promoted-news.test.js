@@ -1,5 +1,11 @@
 const superagent = require('superagent');
-const { mapAttrs, apiUrl, expectCommonResponse, expectListShape, newsShape } = require('./helpers');
+const {
+  mapAttrs,
+  apiUrl,
+  expectCommonResponse,
+  expectListShape,
+  newsShape
+} = require('./helpers');
 
 test('it should return a list of promoted news', () => {
   return superagent.get(apiUrl('/v1/en/promoted-news')).then(res => {

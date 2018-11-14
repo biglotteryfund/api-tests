@@ -2,7 +2,10 @@ const superagent = require('superagent');
 const { mapAttrs, apiUrl, expectCommonResponse } = require('./helpers');
 const { compose, map } = require('lodash/fp');
 
-const mapPaths = compose(map('path'), mapAttrs);
+const mapPaths = compose(
+  map('path'),
+  mapAttrs
+);
 
 test('it should return a list of all canonical routes powered by the CMS', () => {
   return superagent.get(apiUrl('/v1/list-routes')).then(res => {

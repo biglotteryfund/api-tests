@@ -7,7 +7,10 @@ const {
 } = require('./helpers');
 const { compose, head } = require('lodash/fp');
 
-const extractItem = compose(head, mapAttrs);
+const extractItem = compose(
+  head,
+  mapAttrs
+);
 
 test('it should return a content for a general page', () => {
   return superagent

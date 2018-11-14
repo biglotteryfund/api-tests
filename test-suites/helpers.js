@@ -29,12 +29,10 @@ const newsShape = {
   title: expect.any(String),
   summary: expect.any(String),
   link: expect.any(String)
-}
+};
 
 function expectNewsShape(newsArticle) {
-  expect(newsArticle).toEqual(
-    expect.objectContaining(newsShape)
-  );
+  expect(newsArticle).toEqual(expect.objectContaining(newsShape));
 }
 
 const mediaRegex = /\.jpg/;
@@ -47,9 +45,7 @@ const heroShape = {
 };
 
 function expectHeroShape(heroImage) {
-  expect(heroImage).toEqual(
-    expect.objectContaining(heroShape)
-  );
+  expect(heroImage).toEqual(expect.objectContaining(heroShape));
   // Optional/nullable properties
   expect(heroImage).toHaveProperty('caption');
 }
