@@ -27,9 +27,9 @@ function expectCommonResponse({ res, includeMeta = false }) {
 
 const newsShape = {
   title: expect.any(String),
-  summary: expect.any(String),
-  link: expect.any(String)
-}
+  regions: expect.any(Array),
+  summary: expect.any(String)
+};
 
 function expectNewsShape(newsArticle) {
   expect(newsArticle).toEqual(

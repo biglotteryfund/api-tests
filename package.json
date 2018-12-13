@@ -30,5 +30,8 @@
       "no-shadow": "warn",
       "no-console": "off"
     }
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

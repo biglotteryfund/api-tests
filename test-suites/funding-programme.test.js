@@ -7,16 +7,16 @@ beforeAll(() => {
 
 function expectProgrammeShape(attrs) {
   expect(attrs).toHaveProperty('title');
-  expect(attrs).toHaveProperty('summary');
+  expect(attrs).toHaveProperty('description');
   expect(attrs).toHaveProperty('hero');
-  expect(attrs).toHaveProperty('intro');
+  expect(attrs).toHaveProperty('contentSections');
   expectHeroShape(attrs.hero);
 }
 
 test('it should return a single funding programme', () => {
   return superagent
     .get(
-      apiUrl('/v1/en/funding-programme/national-lottery-awards-for-all-england')
+      apiUrl('/v2/en/funding-programmes/national-lottery-awards-for-all-england')
     )
     .then(res => {
       const { body } = res;
@@ -25,7 +25,7 @@ test('it should return a single funding programme', () => {
       expectCommonResponse({ res });
       expectProgrammeShape(attrs);
 
-      const title = attrs.summary.title;
+      const title = attrs.title;
       expect(title).toBe('National Lottery Awards for All England');
     });
 });
@@ -33,7 +33,7 @@ test('it should return a single funding programme', () => {
 test('it should return a single funding programme in welsh', () => {
   return superagent
     .get(
-      apiUrl('/v1/cy/funding-programme/national-lottery-awards-for-all-wales')
+      apiUrl('/v2/cy/funding-programmes/national-lottery-awards-for-all-wales')
     )
     .then(res => {
       const { body } = res;
@@ -42,7 +42,7 @@ test('it should return a single funding programme in welsh', () => {
       expectCommonResponse({ res });
       expectProgrammeShape(attrs);
 
-      const title = attrs.summary.title;
+      const title = attrs.title;
       expect(title).toBe('Arian i Bawb y Loteri Genedlaethol Cymru');
     });
 });
