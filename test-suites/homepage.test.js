@@ -1,5 +1,5 @@
 const superagent = require('superagent');
-const { apiUrl, expectCommonResponse, expectListShape, newsShape } = require('./helpers');
+const { apiUrl, expectCommonResponse, expectListShape } = require('./helpers');
 
 const mediaRegex = /\.jpg/;
 const homepageHeroShape = {
@@ -10,7 +10,7 @@ const homepageHeroShape = {
   large: expect.stringMatching(mediaRegex)
 };
 
-test('it should data for the homepage', () => {
+test('it should get data for the homepage', () => {
   return superagent
     .get(apiUrl('/v1/en/homepage'))
     .then(res => {
@@ -21,6 +21,5 @@ test('it should data for the homepage', () => {
         expect.objectContaining(homepageHeroShape)
       );
       expectListShape(attrs.heroImages.candidates, homepageHeroShape);
-      expectListShape(attrs.newsArticles, newsShape);
     });
 });
