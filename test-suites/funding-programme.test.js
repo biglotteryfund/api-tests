@@ -8,9 +8,9 @@ beforeAll(() => {
 function expectProgrammeShape(attrs) {
   expect(attrs).toHaveProperty('title');
   expect(attrs).toHaveProperty('description');
-  expect(attrs).toHaveProperty('hero');
+  expect(attrs).toHaveProperty('heroNew');
   expect(attrs).toHaveProperty('contentSections');
-  expectHeroShape(attrs.hero);
+  expectHeroShape(attrs.heroNew.image);
 }
 
 test('it should return a single funding programme', () => {
