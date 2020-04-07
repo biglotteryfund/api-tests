@@ -16,9 +16,11 @@ function expectProgrammeShape(attrs) {
 test('it should return a single funding programme', () => {
   return superagent
     .get(
-      apiUrl('/v2/en/funding-programmes/national-lottery-awards-for-all-england')
+      apiUrl(
+        '/v2/en/funding-programmes/national-lottery-awards-for-all-england'
+      )
     )
-    .then(res => {
+    .then((res) => {
       const { body } = res;
       const attrs = body.data.attributes;
 
@@ -35,7 +37,7 @@ test('it should return a single funding programme in welsh', () => {
     .get(
       apiUrl('/v2/cy/funding-programmes/national-lottery-awards-for-all-wales')
     )
-    .then(res => {
+    .then((res) => {
       const { body } = res;
       const attrs = body.data.attributes;
 

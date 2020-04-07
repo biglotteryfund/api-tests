@@ -9,7 +9,7 @@ beforeAll(() => {
 });
 
 test('it should return a list of funding programmes', () => {
-  return superagent.get(apiUrl('/v2/en/funding-programmes')).then(res => {
+  return superagent.get(apiUrl('/v2/en/funding-programmes')).then((res) => {
     const { body } = res;
     expectCommonResponse({ res, includeMeta: true });
     const titles = mapTitles(body);
@@ -17,14 +17,14 @@ test('it should return a list of funding programmes', () => {
       expect.arrayContaining([
         'National Lottery Awards for All England',
         'National Lottery Awards for All Wales',
-        'National Lottery Awards for All Scotland'
+        'National Lottery Awards for All Scotland',
       ])
     );
   });
 });
 
 test('it should return a list of translated funding programmes', () => {
-  return superagent.get(apiUrl('/v2/cy/funding-programmes')).then(res => {
+  return superagent.get(apiUrl('/v2/cy/funding-programmes')).then((res) => {
     const { body } = res;
     expectCommonResponse({ res, includeMeta: true });
     expect(mapTitles(body)).toContain(

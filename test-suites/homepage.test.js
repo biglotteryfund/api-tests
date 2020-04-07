@@ -11,16 +11,14 @@ const homepageFeaturedLinkShape = {
     small: expect.stringMatching(mediaRegex),
     medium: expect.stringMatching(mediaRegex),
     large: expect.stringMatching(mediaRegex),
-  })
+  }),
 };
 
 test('it should get data for the homepage', () => {
-  return superagent
-    .get(apiUrl('/v1/en/homepage'))
-    .then(res => {
-      const { body } = res;
-      const attrs = body.data.attributes;
-      expectCommonResponse({ res });
-      expectListShape(attrs.featuredLinks, homepageFeaturedLinkShape);
-    });
+  return superagent.get(apiUrl('/v1/en/homepage')).then((res) => {
+    const { body } = res;
+    const attrs = body.data.attributes;
+    expectCommonResponse({ res });
+    expectListShape(attrs.featuredLinks, homepageFeaturedLinkShape);
+  });
 });
