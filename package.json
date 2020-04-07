@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest",
-    "format": "prettier --single-quote --write test-suites/*"
+    "format": "prettier --single-quote --write ."
   },
   "dependencies": {
     "dotenv": "^8.2.0",
