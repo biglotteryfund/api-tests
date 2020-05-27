@@ -15,7 +15,6 @@ test('it should return a list of funding programmes', () => {
     const titles = mapTitles(body);
     expect(titles).toEqual(
       expect.arrayContaining([
-        'National Lottery Awards for All England',
         'National Lottery Awards for All Wales',
         'National Lottery Awards for All Scotland',
       ])
